@@ -35,7 +35,7 @@ Widget text14(
     textAlign: TextAlign.center,
     style: TextStyle(
       color: color,
-      fontSize: 16,
+      fontSize: 14,
       fontFamily: "Smooch",
       fontWeight: FontWeight.normal,
     ),

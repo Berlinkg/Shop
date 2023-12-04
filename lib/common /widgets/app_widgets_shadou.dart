@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 
-BoxDecoration appBoxShadou({Color color = AppColors.primaryElement}) {
+BoxDecoration appBoxShadou({
+  Color color = AppColors.primaryElement,
+  BoxBorder? border,
+}) {
   return BoxDecoration(
+    border: border,
     color: color,
     borderRadius: BorderRadius.circular(15),
   );
 }
 
-BoxDecoration appBoxTextFieldShadou(
-    {Color color = AppColors.primaryBackground,
-    Color backgroundColor = AppColors.primaryFourElementText}) {
+BoxDecoration appBoxTextFieldShadou({
+  Color color = AppColors.primaryBackground,
+  Color backgroundColor = AppColors.primaryFourElementText,
+}) {
   return BoxDecoration(
     color: color,
     borderRadius: BorderRadius.circular(15),

@@ -4,7 +4,7 @@ import 'package:first/common%20/widgets/image_widget.dart';
 import 'package:first/common%20/widgets/text_widgets.dart';
 import 'package:flutter/material.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBar({String text = ""}) {
   return AppBar(
     bottom: PreferredSize(
       preferredSize: const Size.fromHeight(20),
@@ -13,7 +13,7 @@ AppBar buildAppBar() {
         height: 1,
       ),
     ),
-    title: text16(text: "Shoping", color: AppColors.primaryText),
+    title: text16(text: text, color: AppColors.primaryText),
   );
 }
 
@@ -68,11 +68,8 @@ Widget appTExtFiled({
                 child: appImage(imagePath: iconName),
               ),
               SizedBox(
-                //Container
-                // height: ,
                 width: 250,
                 child: TextField(
-                  //keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: hintText,
                     enabledBorder: const OutlineInputBorder(
@@ -97,8 +94,25 @@ Widget appTExtFiled({
               ),
             ],
           ),
-        )
+        ),
       ],
+    ),
+  );
+}
+
+Widget textUnderline({String text = ""}) {
+  return GestureDetector(
+    onTap: () {
+      print("aas");
+    },
+    child: Text(
+      text,
+      style: const TextStyle(
+          decoration: TextDecoration.underline,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: AppColors.primaryText,
+          decorationColor: AppColors.primaryText),
     ),
   );
 }
