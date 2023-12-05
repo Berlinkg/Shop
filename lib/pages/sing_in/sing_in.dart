@@ -3,6 +3,8 @@ import 'package:first/common%20/widgets/text_widgets.dart';
 import 'package:first/pages/sing_in/widgets/sing_In_widgets.dart';
 import 'package:flutter/material.dart';
 
+import '../../common /widgets/app_textfields.dart';
+
 class SingIn extends StatelessWidget {
   const SingIn({super.key});
 
@@ -56,9 +58,12 @@ class SingIn extends StatelessWidget {
                 ),
                 Center(
                   child: appButton(
+                    buttonName: "Sing Up",
                     text: "login",
                     isLogin: false,
                     context: context,
+                    func: () => Navigator.pushNamed(context, "/register"),
+                    // () => Navigator.pushNamed(context, "/register"),
                   ),
                 ),
               ],

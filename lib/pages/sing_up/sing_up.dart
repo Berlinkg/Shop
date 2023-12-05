@@ -1,13 +1,18 @@
 import 'package:first/common%20/widgets/text_widgets.dart';
+import 'package:first/pages/sing_up/notifier/registor_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../common /widgets/app_textfields.dart';
 import '../../common /widgets/button_widgets.dart';
 import '../sing_in/widgets/sing_In_widgets.dart';
 
-class SingUp extends StatelessWidget {
+class SingUp extends ConsumerWidget {
   const SingUp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final regProvider = ref.watch(registorNotifierProvider);
+    regProvider.toString();
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -29,7 +34,10 @@ class SingUp extends StatelessWidget {
                   text: "User name",
                   iconName: "assets/images/user.png",
                   hintText: "Enter your email",
-                  obscureText: false,
+                  func: (value) => ref
+                      .read(registorNotifierProvider.notifier)
+                      .onUserNameChange(value),
+                  // func: (value) => print(value),
                 ),
                 const SizedBox(
                   height: 25,
@@ -39,6 +47,9 @@ class SingUp extends StatelessWidget {
                   iconName: "assets/images/user.png",
                   hintText: "Enter your email adrres",
                   obscureText: false,
+                  func: (value) => ref
+                      .read(registorNotifierProvider.notifier)
+                      .onUserNameChange(value),
                 ),
                 const SizedBox(
                   height: 25,
@@ -48,6 +59,9 @@ class SingUp extends StatelessWidget {
                   iconName: "assets/images/lock.png",
                   hintText: "Enter your email",
                   obscureText: false,
+                  func: (value) => ref
+                      .read(registorNotifierProvider.notifier)
+                      .onUserEmailChange(value),
                 ),
                 const SizedBox(
                   height: 25,
@@ -57,23 +71,35 @@ class SingUp extends StatelessWidget {
                   iconName: "assets/images/loc.png",
                   hintText: "Enter your confrim password",
                   obscureText: true,
+                  func: (value) => print(value),
                 ),
-                SizedBox(
-                  height: 25,
-                  child: text14(
-                    text: "or sing up in another login   ",
+                const SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: SizedBox(
+                    height: 40,
+                    child: text14(
+                      text: "or sing up in another login   ",
+                    ),
                   ),
                 ),
                 const SizedBox(
-                  height: 37,
+                  height: 20,
                 ),
                 Center(
                   child: appButton(
-                    text: "login",
-                    isLogin: false,
+                    text: "REGISTER",
+                    isLogin: true,
                     context: context,
+                    func: () {
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>))
+                    },
                   ),
                 ),
+                // Center(
+                //   child: appButton(text: "registorefefefer"),
+                // ),
               ],
             ),
           ),

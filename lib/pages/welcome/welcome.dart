@@ -4,14 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'notifier/welcome_notofier.dart';
 
-//final indexProvider = StateProvider<int>((ref) => 0);
-
 class Welcome extends ConsumerWidget {
   Welcome({Key? key}) : super(key: key);
 
   final PageController _controller = PageController();
-
-  //nt dotsIndex = 0;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
