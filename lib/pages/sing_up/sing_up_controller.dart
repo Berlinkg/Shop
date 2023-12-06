@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first/common%20/global/global_loadr.dart';
 import 'package:first/common%20/widgets/popap_mesages.dart';
 import 'package:first/pages/sing_up/notifier/registor_notifier.dart';
 import 'package:flutter/foundation.dart';
@@ -36,10 +37,13 @@ class SingUpController {
       toastInfo("our password did not  match our password. Please try again");
       return;
     }
-    if ((state.password! == state.rePassword) || password != rePassword) {
+    if ((state.password == state.rePassword) || password != rePassword) {
       toastInfo("our password did not  match our password. Please try again");
       return;
     }
+    //!shou the loading icon for sing up
+    ref.read(appLoaderProvider.notifier).setLoaderValue(true);
+
     var context = Navigator.of(ref.context);
     try {
       final cretdential =
@@ -59,6 +63,11 @@ class SingUpController {
               "your account has been created  successfully.pleass open your indented");
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      if (kDebugMode) {
+        print(e.toString()); //!shou the registor page
+        ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
+      }
+    }
   }
 }

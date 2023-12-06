@@ -16,4 +16,6 @@ class RegistorNotifier extends _$RegistorNotifier {
   void onUserEmailChange(String email) {
     state = state.copyWith(email: email);
   }
+
+  // void setLoaderValue(bool bool) {}
 }
