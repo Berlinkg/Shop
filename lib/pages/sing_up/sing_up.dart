@@ -98,7 +98,8 @@ class SingUp extends ConsumerWidget {
                             isLogin: true,
                             context: context,
                             func: () {
-                              print("aas");
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => Scaffold()));
                             }),
                       ),
                     ],
