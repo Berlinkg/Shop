@@ -37,37 +37,44 @@ class SingUpController {
       toastInfo("our password did not  match our password. Please try again");
       return;
     }
-    if ((state.password == state.rePassword) || password != rePassword) {
-      toastInfo("our password did not  match our password. Please try again");
-      return;
-    }
-    //!shou the loading icon for sing up
-    ref.read(appLoaderProvider.notifier).setLoaderValue(true);
 
-    var context = Navigator.of(ref.context);
-    try {
-      final cretdential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      if (kDebugMode) {
-        print(cretdential);
-        if (cretdential.user != null) {
-          await cretdential.user?.sendEmailVerification();
-          await cretdential.user?.updateDisplayName(name);
-          //get server foto url
-          //get user fotot url
-          context.pop();
+    ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
+    Future.delayed(
+      const Duration(seconds: 2),
+      () async {
+        if ((state.password == state.rePassword) || password != rePassword) {
           toastInfo(
-              "your account has been created  successfully.pleass open your indented");
+              "our password did not  match our password. Please try again");
+          return;
         }
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        print(e.toString()); //!shou the registor page
-        ref.watch(appLoaderProvider.notifier).setLoaderValue(false);
-      }
-    }
+        //!shou the loading icon for sing up
+        ref.read(appLoaderProvider.notifier).setLoaderValue(true);
+
+        var context = Navigator.of(ref.context);
+        try {
+          final cretdential =
+              await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: email,
+            password: password,
+          );
+          if (kDebugMode) {
+            print(cretdential);
+            if (cretdential.user != null) {
+              await cretdential.user?.sendEmailVerification();
+              await cretdential.user?.updateDisplayName(name);
+
+              context.pop();
+              toastInfo(
+                  "your account has been created  successfully.pleass open your indented");
+              context.pop();
+            }
+          }
+        } catch (e) {
+          if (kDebugMode) {
+            print(e.toString()); //!shou the registor page
+          }
+        }
+      },
+    );
   }
 }
