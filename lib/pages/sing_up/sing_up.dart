@@ -99,7 +99,9 @@ class SingUp extends ConsumerWidget {
                             context: context,
                             func: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => Scaffold()));
+                                  builder: (context) => Scaffold(
+                                        appBar: AppBar(),
+                                      )));
                             }),
                       ),
                     ],
