@@ -17,5 +17,11 @@ class RegistorNotifier extends _$RegistorNotifier {
     state = state.copyWith(email: email);
   }
 
-  // void setLoaderValue(bool bool) {}
+  void onUserPasswordChange(String password) {
+    state = state.copyWith(password: password);
+  }
+
+  void onUserRePasswordChange(String password) {
+    state = state.copyWith(rePassword: password);
+  }
 }

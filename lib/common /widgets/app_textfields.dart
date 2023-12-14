@@ -29,7 +29,7 @@ Widget appTExtFiled(
               SizedBox(
                 width: 250,
                 child: TextField(
-                  onChanged: (value) => func!(value),
+                  // onChanged: (value) => func!(value),
                   decoration: InputDecoration(
                     hintText: hintText,
                     enabledBorder: const OutlineInputBorder(

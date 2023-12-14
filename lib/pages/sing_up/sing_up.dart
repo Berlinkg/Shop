@@ -76,7 +76,8 @@ class SingUp extends ConsumerWidget {
                         iconName: "assets/images/loc.png",
                         hintText: "Enter your confrim password",
                         obscureText: true,
-                        func: (value) => print(value),
+                        //print
+                        func: (value) => (value),
                       ),
                       const SizedBox(
                         height: 30,
