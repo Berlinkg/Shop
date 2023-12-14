@@ -4,12 +4,13 @@ import '../utils/app_colors.dart';
 import 'app_widgets_shadou.dart';
 import 'image_widget.dart';
 
-Widget appTExtFiled(
-    {String text = "",
-    String iconName = "",
-    String hintText = "BIr nerse korsot son ",
-    bool obscureText = false,
-    void Function(String value)? func}) {
+Widget appTExtFiled({
+  String text = "",
+  String iconName = "",
+  String hintText = "BIr nerse korsot son ",
+  bool obscureText = false,
+  void Function(String value)? func,
+}) {
   return Container(
     padding: const EdgeInsets.only(left: 25, right: 25),
     child: Column(
@@ -18,7 +19,6 @@ Widget appTExtFiled(
         text14(text: text),
         Container(
           height: 50,
-          // width: 300,
           decoration: appBoxTextFieldShadou(),
           child: Row(
             children: [
@@ -29,7 +29,8 @@ Widget appTExtFiled(
               SizedBox(
                 width: 250,
                 child: TextField(
-                  // onChanged: (value) => func!(value),
+                  //!
+                  onChanged: (value) => func!(value),
                   decoration: InputDecoration(
                     hintText: hintText,
                     enabledBorder: const OutlineInputBorder(
