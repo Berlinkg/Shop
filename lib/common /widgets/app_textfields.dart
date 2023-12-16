@@ -58,19 +58,19 @@ Widget appTExtFiled({
   );
 }
 
-// Widget textUnderline({String text = ""}) {
-//   return GestureDetector(
-//     onTap: () {
-//       print("aas");
-//     },
-//     child: Text(
-//       text,
-//       style: const TextStyle(
-//           decoration: TextDecoration.underline,
-//           fontSize: 14,
-//           fontWeight: FontWeight.bold,
-//           color: AppColors.primaryText,
-//           decorationColor: AppColors.primaryText),
-//     ),
-//   );
-// }
+Widget textUnderline({String text = ""}) {
+  return GestureDetector(
+    onTap: () {
+      print("aas");
+    },
+    child: Text(
+      text,
+      style: const TextStyle(
+          decoration: TextDecoration.underline,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: AppColors.primaryText,
+          decorationColor: AppColors.primaryText),
+    ),
+  );
+}
