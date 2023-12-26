@@ -77,3 +77,11 @@ class Welcome extends ConsumerWidget {
     );
   }
 }
+
+//   appOnboardingPage(PageController controller,
+//       {required String image,
+//       required String title,
+//       required String subTitle,
+//       required int index,
+//       required BuildContext context}) {}
+// }
